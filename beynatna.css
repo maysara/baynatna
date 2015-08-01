@@ -1,3 +1,9 @@
+body { 
+    background-image: url('/baynatna/Beynatna_splash.svg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+}
 #splash-image {
 }
 

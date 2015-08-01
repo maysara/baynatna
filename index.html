@@ -1,6 +1,9 @@
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="jquery.countdown-2.0.5/jquery.countdown.js"></script>
-	<script>// Convert all English digits in a string to Arabic digit equivalents
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="beynatna.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="jquery.countdown-2.0.5/jquery.countdown.js"></script>
+    <script>// Convert all English digits in a string to Arabic digit equivalents
 public static string ToArabicNums(string src)
 {
     const string digits = "۰۱۲۳۴۵۶۷۸۹";
@@ -37,15 +40,15 @@ public static string ToArabicNumsHtml(string src)
     </head>
     <body>
         <span> سيتم إطلاق هذه المدونة خلال</span>
-	<span id="countdown"></span>
+	<span id="countdown-container"></span>
             <script type="text/javascript">
-                $("#countdown")
+                $("#countdown-container")
                 .countdown("2016/08/03", function(event) {
                 $(this).text(
                 event.strftime('%H:%M:%S')
                 );
          });
  </script>
-        <img id="splash-image" src="Beynatna_splash.svg"/> 
+        <!--<img id="splash-image" src="Beynatna_splash.svg"/>  -->
     </body>
 </html>
