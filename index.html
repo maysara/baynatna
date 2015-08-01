@@ -1,0 +1,52 @@
+<html>
+    <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script src="jquery.countdown-2.0.5/jquery.countdown.js"></script>
+	<script>// Convert all English digits in a string to Arabic digit equivalents
+public static string ToArabicNums(string src)
+{
+    const string digits = "۰۱۲۳۴۵۶۷۸۹";
+    return string.Join("", 
+        src.Select(c => c >= '0' && c <= '9' ? digits[((int)c - (int)'0')] : c)
+    );
+}
+
+// Convert all English digits in the text segments of an HTML 
+// document to Arabic digit equivalents
+public static string ToArabicNumsHtml(string src)
+{
+    string res = src;
+
+    Regex re = new Regex(@">(.*?)<");
+
+    // get Regex matches 
+    MatchCollection matches = re.Matches(res);
+
+    // process in reverse in case transformation function returns 
+    // a string of a different length
+    for (int i = matches.Count - 1; i >= 0; --i)
+    {
+        Match nxt = matches[i];
+        if (nxt.Groups.Count == 2 && nxt.Groups[1].Length > 0)
+        {
+            Group g = nxt.Groups[1];
+            res = res.Substring(0, g.Index) + ToArabicNums(g.Value) +
+                res.Substring(g.Index + g.Length);
+    }
+
+    return res;
+}</script>
+    </head>
+    <body>
+	<span id="countdown" style="font-size:15em; position:absolute; float:right"></span>
+            <script type="text/javascript">
+                $("#countdown")
+                .countdown("2016/08/03", function(event) {
+                $(this).text(
+                event.strftime('%H:%M:%S')
+                );
+         });
+ </script>
+        <img id="splash-image" src="Beynatna_splash.svg"/> 
+    </body>
+</html>
