@@ -4,8 +4,12 @@ body {
     background-attachment: fixed;
     background-position: center; 
 }
+#arabic-launch-text {
+	color: #888888;
+}
 #splash-image {
 }
 
 #countdown-container {
+	color: #888888;
 }
